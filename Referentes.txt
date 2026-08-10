@@ -1,0 +1,38 @@
+
+############ COMPONENTES DE LA WEB
+#### REFERENTES
+
+https://garance-genicot.facultysite.georgetown.edu/bio
+https://brigitte-castaneda.github.io/
+https://www.matteoiacoviello.com/
+https://ignaciomsarmiento.github.io/index.html
+https://www.stefanie-stantcheva.com/
+https://www.upanizza.com/
+
+https://socialeconomicslab.org/ -> de las mejores
+https://chrisblattman.com/about/ -> de los mejores
+https://www.jvoth.com/index.html -> de los mejores
+
+#### SECCIONES
+Secciones que si o si deben ir:
+
+About
+Writing and publishing
+    - Published articles
+    - Working papers (selected)
+    - Books
+Bio & CV
+Media coverage
+Consulting
+Datasets
+
+
+############ PROMPT
+
+### CONTEXTO
+
+### INSTRUCCIONES PARA REPLICAR LA WEB
+
+
+
+
