@@ -29,6 +29,20 @@
       margin-top: 8px;
       margin-left: 2px;
     }
+  
+    .lock { max-width: 380px; margin: 8px 0 40px 0; }
+    .lock p { color: #555; font-style: italic; margin-bottom: 18px; }
+    .lock input {
+      width: 100%; padding: 9px 11px; font-size: 1em; font-family: inherit;
+      border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box;
+    }
+    .lock button {
+      margin-top: 10px; padding: 9px 18px; font-size: 0.95em; font-family: inherit;
+      border: 1px solid #444; background: #444; color: #fff; border-radius: 3px;
+      cursor: pointer;
+    }
+    .lock button:hover { background: #222; border-color: #222; }
+    .lock .msg { margin-top: 12px; color: #a33; font-style: normal; min-height: 1.2em; }
   </style>
 </head>
 <body>
@@ -62,107 +76,17 @@
       <h1 class="page-title">Academic References</h1>
       <div class="page-date">September 2026</div>
 
-      <div class="body-text">
-        <p style="font-style:italic; color:#555; margin-bottom:36px;">
-          Working bibliography kept for personal consultation, organized by category.
-          Citations in APA. Not linked from the site menu.
-        </p>
-
-        <hr style="border: none; border-bottom: 1px solid #dedede; margin: 40px 0 18px 0;" />
-        <h2>Geography Economics</h2>
-
-        <div class="paper-entry" data-added="2026-09-09">
-          <p class="paper-title ref-cite">
-            Dupas, P. (2026). Geography and economic development (revisited). In P. Dupas,
-            P. Goldberg, &amp; R. Pande (Eds.), <em>Handbook of development economics</em>
-            (Vol. 6A). Elsevier.
-          </p>
-          <p class="paper-meta ref-links">
-            <a href="https://www.dropbox.com/scl/fi/5gape5kcno32ii8anxbcc/Dupas_Geography_and_Dev_handbook.pdf?rlkey=4mlj7a30wwmmr0fsi7g1h7qj4&amp;dl=0" target="_blank" rel="noopener">[Paper]</a>
-            <a href="summary_Dupas_Geography_Development.pdf" target="_blank" rel="noopener">[Summary]</a>
-          </p>
-          <span class="ref-tag">#literature-review</span>
-          <span class="ref-added">Added 2026-09-09</span>
-        </div>
-
-        <hr style="border: none; border-bottom: 1px solid #dedede; margin: 40px 0 18px 0;" />
-        <h2>Spatial Economics</h2>
-
-        <div class="paper-entry" data-added="2026-09-09">
-          <p class="paper-title ref-cite">
-            Pollmann, M. (in press). Causal inference for spatial treatments.
-            <em>Econometrica</em>.
-          </p>
-          <p class="paper-meta ref-links">
-            <a href="https://www.econometricsociety.org/publications/econometrica/forthcoming-papers/0000/00/00/Causal-Inference-for-Spatial-Treatments/file/21571-5.pdf" target="_blank" rel="noopener">[Paper]</a>
-            <a href="summary_Pollmann_Spatial_Treatments.pdf" target="_blank" rel="noopener">[Summary]</a>
-          </p>
-          <span class="ref-tag">#causalinference</span>
-          <span class="ref-tag">#spatial-treatments</span>
-          <span class="ref-tag">#design-based</span>
-          <span class="ref-tag">#machine-learning</span>
-          <span class="ref-added">Added 2026-09-09</span>
-        </div>
-        <div class="paper-entry" data-added="2026-09-09">
-          <p class="paper-title ref-cite">
-            Barsanetti, B. (2026). Road end points and city sizes. <em>The Review of
-            Economics and Statistics</em>, <em>108</em>(1).
-            https://doi.org/10.1162/rest_a_01368
-          </p>
-          <p class="paper-meta ref-links">
-            <a href="https://direct.mit.edu/rest/article/108/1/90/117706/Road-End-Points-and-City-Sizes" target="_blank" rel="noopener">[Paper]</a>
-            <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GSCELX" target="_blank" rel="noopener">[Replication data]</a>
-            <a href="summary_Barsanetti_Road_Endpoints.pdf" target="_blank" rel="noopener">[Summary]</a>
-          </p>
-          <span class="ref-tag">#transport-infrastructure</span>
-          <span class="ref-tag">#railroads</span>
-          <span class="ref-tag">#city-sizes</span>
-          <span class="ref-tag">#persistence</span>
-          <span class="ref-added">Added 2026-09-09</span>
-        </div>
-
-        <hr style="border: none; border-bottom: 1px solid #dedede; margin: 40px 0 18px 0;" />
-        <h2>Music</h2>
-
-        <div class="paper-entry" data-added="2026-09-09">
-          <p class="paper-title ref-cite">
-            El Arkeologo, Gambeta, &amp; Gilmer Mesa. (2026). Duelo [Song].
-            On <em>Ventanas</em>.
-          </p>
-          <p class="paper-meta ref-links">
-            <a href="https://www.letras.com/el-arkeologo/duelo/" target="_blank" rel="noopener">[Lyrics]</a>
-            <a href="https://music.apple.com/us/song/duelo/1889580386" target="_blank" rel="noopener">[Listen]</a>
-          </p>
-          <p class="paper-meta" style="margin-top:6px;">
-            Colombian hip-hop from the Medell&iacute;n scene, with novelist Gilmer Mesa credited
-            alongside El Arkeologo and Gambeta. Track 12 of <em>Ventanas</em>, released
-            April 2026.
-          </p>
-          <span class="ref-tag">#rap-colombiano</span>
-          <span class="ref-tag">#medellin</span>
-          <span class="ref-added">Added 2026-09-09</span>
-        </div>
-
-        <hr style="border: none; border-bottom: 1px solid #dedede; margin: 40px 0 18px 0;" />
-        <h2>People</h2>
-
-        <div class="paper-entry" data-added="2026-09-09">
-          <p class="paper-title ref-cite">
-            Sim&oacute;n Villegas Restrepo
-          </p>
-          <p class="paper-meta ref-links">
-            <a href="https://www.linkedin.com/in/clubdeestrategia/" target="_blank" rel="noopener">[LinkedIn]</a>
-          </p>
-          <p class="paper-meta" style="margin-top:6px;">
-            Philosophy applied to strategy and public policy.
-          </p>
-          <span class="ref-tag">#philosophy</span>
-          <span class="ref-tag">#strategy</span>
-          <span class="ref-tag">#public-policy</span>
-          <span class="ref-added">Added 2026-09-09</span>
-        </div>
-
+      <div id="gate" class="lock">
+        <p>This page is encrypted. Enter the passphrase to read it.</p>
+        <form id="unlock-form" autocomplete="off">
+          <input id="pw" type="password" placeholder="Passphrase" autocomplete="off"
+                 autocapitalize="off" spellcheck="false" />
+          <button type="submit">Unlock</button>
+          <div class="msg" id="msg" role="status" aria-live="polite"></div>
+        </form>
       </div>
+
+      <div class="body-text" id="content" hidden></div>
     </article>
   </main>
 
@@ -170,6 +94,37 @@
     &copy; 2026 Jorge Alberto Guerra España. All rights reserved.
   </footer>
 
-  <script src="date.js"></script>
+  <script>
+    const SALT = "2s5Y+gpgqIb1fIZ6pZsdVQ==";
+    const IV = "H9Yykc47scY6+2+E";
+    const DATA = "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";
+    const ITER = 300000;
+
+    const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+
+    document.getElementById("unlock-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById("msg");
+      const pw = document.getElementById("pw").value;
+      if (!pw) return;
+      msg.textContent = "Decrypting…";
+      try {
+        const base = await crypto.subtle.importKey(
+          "raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
+        const key = await crypto.subtle.deriveKey(
+          { name: "PBKDF2", salt: b64(SALT), iterations: ITER, hash: "SHA-256" },
+          base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+        const plain = await crypto.subtle.decrypt(
+          { name: "AES-GCM", iv: b64(IV) }, key, b64(DATA));
+        const content = document.getElementById("content");
+        content.innerHTML = new TextDecoder().decode(plain);
+        content.hidden = false;
+        document.getElementById("gate").hidden = true;
+      } catch (err) {
+        msg.textContent = "Wrong passphrase.";
+        document.getElementById("pw").select();
+      }
+    });
+  </script>
 </body>
 </html>
