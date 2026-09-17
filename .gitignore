@@ -9,3 +9,7 @@ _to_delete/
 # Tarjeta de presentación: lleva teléfono y correo personal, no va al repo público
 /tarjeta.html
 /8-Tarjeta/
+
+# Herramienta local para editar refs.html cifrado; lleva una copia del blob, se desactualiza
+/refs-editor.html
+/refs-crypto.json
