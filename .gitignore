@@ -5,3 +5,7 @@ Thumbs.db
 # Working material, not part of the site
 1-PostsSocialMedia/
 _to_delete/
+
+# Tarjeta de presentación: lleva teléfono y correo personal, no va al repo público
+/tarjeta.html
+/8-Tarjeta/
