@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<title>Algo para ti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Identidad de jorgeguerraespana.com */
+  :root{
+    --navy:#19334c; --blue:#336699; --body:#54595f; --muted:#8b95a3;
+    --rule:#e2e6eb; --bg:#eef0f3; --rose:#8c3b62;
+    --sans:"Montserrat", Arial, Helvetica, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  [hidden]{ display:none !important; }
+  body{ margin:0; background:var(--bg); font-family:var(--sans); color:var(--body); }
+
+  /* ================= puerta ================= */
+  #gate{
+    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
+  }
+  .gate-card{
+    width:100%; max-width:440px; background:#fff; border-radius:10px; padding:40px 36px 34px;
+    box-shadow:0 1px 2px rgba(25,51,76,.08), 0 14px 34px rgba(25,51,76,.10);
+    border-top:4px solid var(--rose);
+  }
+  .gate-card h1{ margin:0; font-size:24px; font-weight:700; color:var(--navy); letter-spacing:-.01em; }
+  .gate-card .hint{ margin:14px 0 22px; font-size:14px; line-height:1.6; }
+  .gate-card .hint b{ color:var(--navy); }
+  .gate-card form{ display:flex; gap:10px; }
+  .gate-card input{
+    flex:1; min-width:0; font:inherit; font-size:16px; padding:12px 14px;
+    border:1px solid #c9d0d9; border-radius:6px; color:var(--navy);
+  }
+  .gate-card input:focus{ outline:2px solid var(--blue); outline-offset:1px; border-color:var(--blue); }
+  .gate-card button{
+    font:inherit; font-size:14px; font-weight:700; padding:12px 20px; border-radius:6px;
+    border:0; background:var(--navy); color:#fff; cursor:pointer;
+  }
+  .gate-card button:disabled{ opacity:.6; cursor:wait; }
+  #msg{ min-height:20px; margin:12px 0 0; font-size:13px; font-weight:600; color:#b33a3a; }
+
+  /* ================= portada ================= */
+  #content{ padding:56px 20px 72px; }
+  .cover{ max-width:720px; margin:0 auto; text-align:center; }
+  .inf{ width:min(240px, 60vw); height:auto; overflow:visible; }
+  .inf path{
+    fill:none; stroke:var(--rose); stroke-width:9; stroke-linecap:round;
+    stroke-dasharray:1; stroke-dashoffset:1;
+  }
+  .cover .kicker{
+    margin:22px 0 0; font-size:12px; font-weight:700; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--rose);
+  }
+  .cover h1{
+    margin:8px 0 0; font-size:clamp(36px, 7vw, 58px); font-weight:800;
+    color:var(--navy); letter-spacing:-.02em; line-height:1.05;
+  }
+  .cover h1 span{ color:var(--rose); }
+  .cover .dx{ margin:18px 0 0; font-size:clamp(16px, 2.4vw, 19px); line-height:1.6; color:var(--body); }
+  .cover .cond{ margin:16px auto 0; max-width:520px; font-size:14px; line-height:1.55; color:var(--muted); }
+  .cover .cond b{ color:var(--navy); font-weight:600; }
+  .cover .valid{ margin:10px 0 0; font-size:13px; font-weight:600; color:var(--navy); }
+  .more{
+    max-width:960px; margin:56px auto 22px; text-align:center;
+    font-size:12px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
+  }
+
+  /* ================= tarjetas ================= */
+  .sheet{ display:flex; flex-direction:column; align-items:center; gap:28px; }
+  .ticket{
+    --stub-w:250px;
+    position:relative; width:100%; max-width:960px; min-height:400px;
+    display:grid; grid-template-columns:1fr var(--stub-w);
+    background:#fff; border-radius:8px; overflow:hidden;
+    box-shadow:0 1px 2px rgba(25,51,76,.08), 0 12px 28px rgba(25,51,76,.10);
+  }
+  .ticket::before, .ticket::after{
+    content:""; position:absolute; z-index:3; width:30px; height:30px; border-radius:50%;
+    background:var(--bg); left:calc(100% - var(--stub-w) - 15px);
+  }
+  .ticket::before{ top:-15px; }
+  .ticket::after{ bottom:-15px; }
+  .perf{
+    position:absolute; z-index:2; top:26px; bottom:26px;
+    left:calc(100% - var(--stub-w) - 1px); border-left:2px dashed rgba(25,51,76,.20);
+  }
+  .main{ padding:36px 52px 30px 48px; display:flex; flex-direction:column; text-align:left; }
+  .head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+  }
+  .head .label{ color:var(--accent); font-weight:700; }
+  .titleblock{ margin-top:22px; padding-left:18px; border-left:4px solid var(--accent); }
+  .title{ font-weight:700; font-size:37px; line-height:1.14; letter-spacing:-.015em; color:var(--navy); margin:0; }
+  .title .hl{ color:var(--accent); }
+  .desc{ font-size:16px; line-height:1.6; color:var(--body); margin:12px 0 0; max-width:560px; }
+  .fine{
+    margin-top:auto; padding-top:12px; border-top:1px solid var(--rule);
+    font-size:12.5px; line-height:1.5; color:var(--muted);
+  }
+  .fine b{ color:var(--navy); font-weight:600; }
+  .foot{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-top:6px; font-size:12.5px; color:var(--muted); }
+  .foot .valid{ color:var(--navy); font-weight:600; }
+  .stub{
+    position:relative; background:var(--accent); color:#fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:28px 18px;
+  }
+  .stub .big{ font-weight:800; font-size:88px; line-height:1; letter-spacing:-.04em; }
+  .stub .big small{ font-size:.45em; font-weight:700; letter-spacing:0; margin-left:4px; }
+  .stub .sub{ margin-top:12px; font-size:14px; line-height:1.4; font-weight:600; opacity:.92; }
+  .stub .mark{ position:absolute; bottom:26px; font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; opacity:.7; }
+
+  .t-a  { --accent:#336699; }
+  .t-b { --accent:#a51c30; }
+  .t-c  { --accent:#19334c; }
+  .t-c .titleblock{
+    border-left:0;
+    background:linear-gradient(180deg,#1f3e8c 0 33.4%,#dcdfe5 33.4% 66.6%,#d0293a 66.6% 100%) left/4px 100% no-repeat;
+  }
+  .t-c .head .label, .t-c .title .hl{ color:var(--blue); }
+
+  /* ================= celular ================= */
+  @media (max-width: 760px){
+    #content{ padding:40px 14px 56px; }
+    .ticket{ --stub-w:104px; min-height:0; }
+    .ticket::before, .ticket::after{ width:20px; height:20px; left:calc(100% - var(--stub-w) - 10px); }
+    .ticket::before{ top:-10px; } .ticket::after{ bottom:-10px; }
+    .perf{ top:16px; bottom:16px; }
+    .main{ padding:20px 20px 16px 18px; }
+    .head{ font-size:10px; letter-spacing:.12em; }
+    .titleblock{ margin-top:12px; padding-left:12px; border-left-width:3px; }
+    .t-c .titleblock{ background-size:3px 100%; }
+    .title{ font-size:22px; }
+    .desc{ font-size:14px; margin-top:8px; }
+    .fine{ margin-top:16px; font-size:11px; }
+    .foot{ flex-direction:column; gap:2px; font-size:11px; }
+    .stub{ padding:14px 8px; }
+    .stub .big{ font-size:40px; }
+    .stub .sub{ font-size:11px; margin-top:6px; }
+    .stub .mark{ display:none; }
+    .more{ margin:44px auto 16px; }
+  }
+
+  /* ================= animación ================= */
+  @keyframes draw { to { stroke-dashoffset:0; } }
+  @keyframes beat { 0%,100%{ transform:scale(1); } 12%{ transform:scale(1.06); } 24%{ transform:scale(1); } 36%{ transform:scale(1.04); } }
+  @keyframes rise { from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:none; } }
+  #content .inf{ animation: beat 1.6s ease-in-out 2.6s infinite; transform-origin:center; }
+  #content .inf path{ animation: draw 2.2s ease-in-out .3s forwards; }
+  #content .cover > p, #content .cover h1, #content .more, #content .ticket{
+    opacity:0; animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  #content .cover .kicker { animation-delay:1.5s; }
+  #content .cover h1      { animation-delay:1.7s; }
+  #content .cover .dx     { animation-delay:2.1s; }
+  #content .cover .cond   { animation-delay:2.4s; }
+  #content .cover .valid  { animation-delay:2.6s; }
+  #content .more          { animation-delay:3.1s; }
+  #content .ticket:nth-child(1){ animation-delay:3.4s; }
+  #content .ticket:nth-child(2){ animation-delay:3.75s; }
+  #content .ticket:nth-child(3){ animation-delay:4.1s; }
+  @media (prefers-reduced-motion: reduce){
+    #content *{ animation:none !important; opacity:1 !important; stroke-dashoffset:0 !important; }
+  }
+</style>
+</head>
+<body>
+
+<main id="gate">
+  <div class="gate-card">
+    <h1>Algo para ti</h1>
+    <p class="hint"><b>Pista:</b> una palabra especial para los dos. Puede ser un lugar, una fecha, un apodo o una situación. Sin espacios ni símbolos, todo en minúsculas.</p>
+    <form id="f" autocomplete="off">
+      <input id="pw" type="password" placeholder="Palabra especial" autocapitalize="none" autocorrect="off" spellcheck="false" />
+      <button id="go" type="submit">Abrir</button>
+    </form>
+    <p id="msg" role="status"></p>
+  </div>
+</main>
+
+<div id="content" hidden></div>
+
+<script>
+  /* Contenido cifrado: PBKDF2-SHA256 (ITER) → 64 bytes = clave AES-256-CBC + clave HMAC-SHA256.
+     Se verifica el HMAC de (iv || ct) antes de descifrar. */
+  var SALT = "uOug7ZON/rY6MquY9qi3Xg==";
+  var IV   = "eC6fvYDk5ncPGglLWGdhbw==";
+  var CT   = "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";
+  var MAC  = "x66zqVVFFBTaqqmWudOE95FVuthUFe1myMuoSb3RUK4=";
+  var ITER = 300000;
+
+  function b64(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); }
+
+  async function unlock(pw){
+    var base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]);
+    var bits = new Uint8Array(await crypto.subtle.deriveBits(
+      { name:"PBKDF2", salt:b64(SALT), iterations:ITER, hash:"SHA-256" }, base, 512));
+    var encKey = await crypto.subtle.importKey("raw", bits.slice(0,32), { name:"AES-CBC" }, false, ["decrypt"]);
+    var macKey = await crypto.subtle.importKey("raw", bits.slice(32,64), { name:"HMAC", hash:"SHA-256" }, false, ["verify"]);
+    var iv = b64(IV), ct = b64(CT);
+    var signed = new Uint8Array(iv.length + ct.length); signed.set(iv); signed.set(ct, iv.length);
+    var ok = await crypto.subtle.verify("HMAC", macKey, b64(MAC), signed);
+    if (!ok) throw new Error("wrong");
+    var plain = await crypto.subtle.decrypt({ name:"AES-CBC", iv:iv }, encKey, ct);
+    return new TextDecoder().decode(plain);
+  }
+
+  document.getElementById("f").addEventListener("submit", async function(e){
+    e.preventDefault();
+    var msg = document.getElementById("msg"), go = document.getElementById("go");
+    // perdona mayúsculas y espacios del teclado del celular
+    var pw = document.getElementById("pw").value.trim().toLowerCase().replace(/\s+/g, "");
+    if (!pw) return;
+    go.disabled = true; msg.style.color = "#8b95a3"; msg.textContent = "Abriendo…";
+    try {
+      var html = await unlock(pw);
+      var content = document.getElementById("content");
+      content.innerHTML = html;
+      document.getElementById("gate").hidden = true;
+      content.hidden = false;
+      window.scrollTo(0, 0);
+    } catch (err) {
+      msg.style.color = ""; msg.textContent = "Esa no es. Intenta de nuevo.";
+      go.disabled = false; document.getElementById("pw").select();
+    }
+  });
+</script>
+</body>
+</html>
